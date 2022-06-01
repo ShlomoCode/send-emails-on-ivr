@@ -1,19 +1,18 @@
 require('dotenv').config({ path: 'config.env' });
-require('colors');
+const colors = require('colors');
 const express = require('express');
 const app = express();
 const { Yemot_router } = require('yemot-router');
-const path = require('path');
 const y = Yemot_router();
 const checkAutRequest = require('./src/checkAuthReq');
 
 if (!process.env.GMAIL_USER || !process.env.GMAIL_PASSWORD) {
-    console.log('Please set your GMAIL_USER and GMAIL_PASSWORD in config.env file'.red);
+    console.log(colors.red('Please set your GMAIL_USER and GMAIL_PASSWORD in config.env file'));
     process.exit(1);
 }
 
 if (!process.env.IVR_TOKEN) {
-    console.log('Warning! If you do not set up authentication, anyone will be able to send emails on your behalf!'.red);
+    console.log(colors.red('Warning! If you do not set up authentication, anyone will be able to send emails on your behalf!'));
 }
 
 const sendMailDialog = require('./src/dialogs/send-mail');

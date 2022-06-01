@@ -12,7 +12,7 @@ module.exports = async (address, subject, body) => {
     return transporter.sendMail({
         from: process.env.GMAIL_USER,
         to: address,
-        subject: subject,
+        subject,
         text: body
     });
 };
