@@ -1,0 +1,23 @@
+{
+    "name": "Gmail on ivr",
+    "description": "Send message via ivr system",
+    "keywords": [
+        "ivr",
+        "gmail",
+        "yemot"
+    ],
+    "website": "https://madrichim.ovh/contact",
+    "repository": "https://github.com/ShlomoCode/gmail-on-ivr",
+    "success_url": "/api/send",
+    "env": {
+        "GMAIL_USER": {
+            "description": "כתובת המייל שלך בGmail"
+        },
+        "GMAIL_PASSWORD": {
+            "description": "\"סיסמה לאפליקציה\" של חשבון Google שלך"
+        },
+        "IVR_TOKEN": {
+            "description": "קוד אימות כדי שרק אתה תוכל לשלוח הודעות באמצעות המערכת"
+        }
+    }
+}
