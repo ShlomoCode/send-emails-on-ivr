@@ -43,7 +43,7 @@ module.exports = async (call) => {
             { type: 'text', data: `תוכן ההודעה: ${body.replace(/[.\-"'&|]/g, '')}` },
             { type: 'text', data: 'האם אתה מעוניין לשלוח את ההודעה? לאישור הקש אחת, לביטול הקש 2' }
         ]
-        , 'tap', { digits_allowed: [1, 2] });
+        , 'tap', { digits_allowed: [1, 2], max: 1 });
 
     if (confirm === '2') {
         console.log('message rejected by user!');
