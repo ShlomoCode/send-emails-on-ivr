@@ -6,13 +6,6 @@ module.exports = async (call) => {
     const email = await call.read([emailM], 'tap', { play_ok_mode: 'EmailKeyboard' });
     console.log('email:', email);
 
-    if (!/@/.test(email)) {
-        await call.id_list_message([
-            { type: 'text', data: 'כתובת האימייל שהקלדת אינה תקינה, נראה ששכחת לכתוב שטרודל, נסה שוב' }
-        ], true);
-        return await call.restart_ext();
-    }
-
     const validateEmail = await emailValidator({
         email,
         validateRegex: true,
